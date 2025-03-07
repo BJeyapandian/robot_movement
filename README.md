@@ -66,6 +66,7 @@ Step 1 : Run all tests:
            
 Step 2 : Run a specific test file:
            python -m unittest tests.test_robot
+           
            python -m unittest tests.test_terrain
 
 
