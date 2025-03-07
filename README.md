@@ -62,9 +62,11 @@ Step 3 : Select the options:
 
 ## Run unit test:
 Step 1 : Run all tests:
+
            python -m unittest discover tests
            
 Step 2 : Run a specific test file:
+
            python -m unittest tests.test_robot
            
            python -m unittest tests.test_terrain
