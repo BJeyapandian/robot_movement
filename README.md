@@ -27,4 +27,43 @@ robot_movement/
 │
 │── requirements.txt        
 │── README.md               
-│── .gitignore              
+│── .gitignore    
+
+
+## Run Project 
+ Step 1 : Create the Project Structure like mention above.
+ Step 2 : Run the main.py (CLI)
+            - You should see a menu like:
+               Options:
+                 1. Add Robot
+                 2. Move Robot
+                 3. Show Robot Position
+                 4. Exit
+                 Enter your choice:
+
+Step 3 : Select the options:
+            Example Interaction:
+              Enter your choice: 1
+              Enter Robot ID: 1
+              Robot 1 added at position (0,0).
+
+              Enter your choice: 2
+              Enter Robot ID to move: 1
+              Enter move command (e.g., N3, E2): N3
+              Robot 1 moved to (0,3).
+
+              Enter your choice: 3
+              Enter Robot ID: 1
+              Robot 1 is at position (0,3).
+
+              Enter your choice: 4
+              Exiting...
+
+## Run unit test:
+Step 1 : Run all tests:
+           python -m unittest discover tests
+Step 2 : Run a specific test file:
+           python -m unittest tests.test_robot
+           python -m unittest tests.test_terrain
+
+
