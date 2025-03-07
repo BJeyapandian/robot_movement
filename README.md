@@ -11,9 +11,9 @@ A Python project to simulate robots moving on a 10x10 grid. It prevents collisio
 
 ## Project Structure
 
-robot_movement/
+robot_movements/
 
-│── robot_movement/         
+│── robot_movements/         
 │   │── __init__.py         
 │   │── robot.py            
 │   │── terrain.py          
