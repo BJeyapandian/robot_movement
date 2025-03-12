@@ -8,12 +8,33 @@ class Robot:
         return self.x, self.y
 
     def move(self, command, occupied_positions):
-        if len(command) < 2 or command[0] not in "NESW" or not command[1:].isdigit():
-            raise ValueError("Invalid command format! Use format like 'N3', 'E2'.")
+        valid_directions = ["N", "E", "S", "W", "NE", "NW", "SE", "SW"]
 
-        direction, steps = command[0], int(command[1:])
-        dx, dy = {"N": (0, 1), "E": (1, 0), "S": (0, -1), "W": (-1, 0)}[direction]
+        # Extract direction and steps without regex
+        for i in range(1, len(command)):
+            if command[i].isdigit():
+                direction, steps = command[:i], command[i:]
+                break
+        else:
+            raise ValueError("Invalid command format! Use format like 'N3', 'E2', 'NE3', 'SW2'.")
 
+        if direction not in valid_directions or not steps.isdigit():
+            raise ValueError("Invalid direction or step count! Use N, E, S, W, NE, NW, SE, SW followed by a number.")
+
+        steps = int(steps)
+
+        # Compute movement based on conditions (instead of using a dictionary)
+        dx, dy = 0, 0
+        if "N" in direction:
+            dy += 1
+        if "S" in direction:
+            dy -= 1
+        if "E" in direction:
+            dx += 1
+        if "W" in direction:
+            dx -= 1
+
+        # Move step by step
         for _ in range(steps):
             new_x, new_y = self.x + dx, self.y + dy
             if 0 <= new_x < self.grid_size and 0 <= new_y < self.grid_size:
